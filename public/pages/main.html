@@ -1,0 +1,36 @@
+<div ng-controller="indexController">
+  <h1>Software License Tracker</h1>
+
+  <div>
+    <form ng-submit="addLicense($event)">
+      <h2>Enter a new license {{editIndex}}</h2>
+      ID :<input type="text" ng-model="tempLicense.id"><br>
+      Company :<input type="text" ng-model="tempLicense.company"><br>
+      Product :<input type="text" ng-model="tempLicense.product"><br>
+      Key :<input type="text" ng-model="tempLicense.key"><br>
+
+      <input type="submit" value="Add License" />
+    </form>
+  </div>
+
+  <div>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Key</th>
+    </tr>
+    <tr ng-repeat="license in licenses">
+      <td>{{license.id}}</td>
+      <td>{{license.company}}</td>
+      <td>{{license.product}}</td>
+      <td>{{license.key}}</td>
+      <td><a ng-href="#" ng-click="editLicense($index)">Edit</a></td>
+      <td><a ng-href="#" ng-click="deleteLicense($index)">Remove</a></td>
+    </tr>
+  </table>
+
+</div>
+</div>
